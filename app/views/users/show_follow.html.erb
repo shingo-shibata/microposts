@@ -4,19 +4,20 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %><br>
-        your followers
+        <%= @title %>
       </h1>
     </section>
   </aside>
   <div class="col-md-10">
-    <% @followers.each do |follower| %>
+    <ol><%= render @users %></ol>
+    <% @users.each do |user| %>
         <tr>
           <td>Name</td>
           <td>Region</td>
         </tr>
         <tr>
-          <td><%= follower.name %></td>
-          <td><%= follower.region %></td>
+          <td><%= user.name %></td>
+          <td><%= user.region %></td>
         </tr>
     <% end %>
   </div>
