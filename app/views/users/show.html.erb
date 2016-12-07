@@ -9,8 +9,10 @@
         生年月日：　<%= @user.birth_day %><br>
         地域：　<%= @user.region %><br>
         プロフィール<br>
-        <%= @user.profile %><br>
+        <%= @user.profile %><br><br>
         <%= link_to "プロフィールを編集する", edit_user_path %>
+        <%= link_to "your followers" followers_path %><br>
+        <%= link_to "your followings" followings_path %><br>
       </h1>
     </section>
   </aside>

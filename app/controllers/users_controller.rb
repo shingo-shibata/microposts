@@ -33,7 +33,15 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-      
+
+  def followers
+    @follower = following_relationships.find_by(followed_id: other_user.id)
+  end
+  
+  def followings
+    @following = following_relationships.find_by(following_user_ids: other_user.id)
+  end
+    
   private
   def user_params
     params.require(:user).permit(:name, :email, :password,
