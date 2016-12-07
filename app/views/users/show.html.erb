@@ -1,4 +1,31 @@
+<style>
+      h1 {
+        text-align: left;
+        text-size:8px;
+        letter-spacing: 0.02em;
+        text-shadow: 1px 1px 0px #000;
+        }
+      h2 {
+        text-align: left;
+        text-size:5px;
+        letter-spacing: 0.15em;
+        }
+</style>
+
 <h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
+  <div class="field">
+    <%= gravatar_for @user %>
+    <%= @user.name %><br>
+    email： <%= @user.email %><br>
+  </div>
+  <div class="field">
+    年齢：　<%= @user.age %><br>
+    生年月日：　<%= @user.birth_day %><br>
+    地域：　<%= @user.region %><br>
+    プロフィール<br>
+    <%= @user.profile %><br>
+  </div>
 </h1>
+<h2>
+  <%= link_to "プロフィールを編集する", edit_user_path %>
+</h2>
