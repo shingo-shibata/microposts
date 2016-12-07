@@ -1,17 +1,25 @@
-<h3>
-  <div class="field">
-    <%= gravatar_for @user %>
-    <%= @user.name %><br>
-    email： <%= @user.email %><br>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %><br><br><br><br><br>
+        email： <%= @user.email %><br>
+        年齢：　<%= @user.age %><br>
+        生年月日：　<%= @user.birth_day %><br>
+        地域：　<%= @user.region %><br>
+        プロフィール<br>
+        <%= @user.profile %><br>
+        <%= link_to "プロフィールを編集する", edit_user_path %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+    <% end %>
   </div>
-  <div class="field">
-    年齢：　<%= @user.age %><br>
-    生年月日：　<%= @user.birth_day %><br>
-    地域：　<%= @user.region %><br>
-    プロフィール<br>
-    <%= @user.profile %><br>
-  </div>
-</h3>
-<h4>
-  <%= link_to "プロフィールを編集する", edit_user_path %>
-</h4>
+</div>
