@@ -1,18 +1,4 @@
-<style>
-      h1 {
-        text-align: left;
-        text-size:8px;
-        letter-spacing: 0.02em;
-        text-shadow: 1px 1px 0px #000;
-        }
-      h2 {
-        text-align: left;
-        text-size:5px;
-        letter-spacing: 0.15em;
-        }
-</style>
-
-<h1>
+<h3>
   <div class="field">
     <%= gravatar_for @user %>
     <%= @user.name %><br>
@@ -25,7 +11,7 @@
     プロフィール<br>
     <%= @user.profile %><br>
   </div>
-</h1>
-<h2>
+</h3>
+<h4>
   <%= link_to "プロフィールを編集する", edit_user_path %>
-</h2>
+</h4>
