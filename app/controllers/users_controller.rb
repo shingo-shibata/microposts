@@ -19,8 +19,7 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
-  
+
   def edit
   end
 
@@ -47,7 +46,6 @@ class UsersController < ApplicationController
     @users = @user.follower_users
     render 'show_follow'
   end
-  
     
   private
   def user_params
