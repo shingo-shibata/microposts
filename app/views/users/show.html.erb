@@ -10,8 +10,8 @@
         プロフィール<br>
         <%= @user.profile %><br><br>
         <%= link_to "プロフィールを編集する", edit_user_path %>
-        <%= link_to "your followers" followers_path %><br>
-        <%= link_to "your followings" followings_path %><br>
+        <%= link_to "your followers", followers_user_path(@user) %><br>
+        <%= link_to "your followings", followings_user_path(@user) %><br>
       </h1>
     </section>
   </aside>
