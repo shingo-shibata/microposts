@@ -11,8 +11,6 @@ class User < ActiveRecord::Base
   validates :region , length: { minimum: 0, maximum: 10 } 
   validates :profile , length: { minimum: 0, maximum: 500 } 
   
-  has_many :microposts
-  
   has_many :following_relationships, class_name:  "Relationship",
                                      foreign_key: "follower_id",
                                      dependent:   :destroy
@@ -37,9 +35,5 @@ class User < ActiveRecord::Base
   # あるユーザーをフォローしているかどうか？
   def following?(other_user)
     following_users.include?(other_user)
-  end
-  
-  def feed_items
-    Micropost.where(user_id: following_user_ids + [self.id])
   end
 end

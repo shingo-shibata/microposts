@@ -9,16 +9,21 @@
     </section>
   </aside>
   <div class="col-md-10">
-    <ol><%= render @users %></ol>
     <% @users.each do |user| %>
-        <tr>
-          <td>Name</td>
-          <td>Region</td>
-        </tr>
-        <tr>
-          <td><%= user.name %></td>
-          <td><%= user.region %></td>
-        </tr>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Region</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.region %></td>
+          </tr>
+        </tbody>
+      </table>
     <% end %>
   </div>
 </div>
