@@ -21,7 +21,6 @@ class UsersController < ApplicationController
     end
   end
   
-  
   def edit
     @user = User.find(params[:id])
   end
@@ -36,19 +35,18 @@ class UsersController < ApplicationController
   end
 
   def followings
-    @title = 'followings'
+    @title = 'あなたがフォローしている方です。'
     @user = User.find(params[:id])
     @users = @user.following_users
     render 'show_follow'
   end
 
   def followers
-    @title = 'followers'
+    @title = 'あなたのフォロワーです。'
     @user = User.find(params[:id])
     @users = @user.follower_users
     render 'show_follow'
   end
-  
     
   private
   def user_params
@@ -63,5 +61,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to root_path if @user != current_user
   end
-  
 end

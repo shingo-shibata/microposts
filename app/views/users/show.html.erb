@@ -1,20 +1,16 @@
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %><br><br><br><br><br>
-        email： <%= @user.email %><br>
-        年齢：　<%= @user.age %><br>
-        地域：　<%= @user.region %><br>
-        プロフィール<br>
-        <%= @user.profile %><br><br>
-        <%= link_to "プロフィールを編集する", edit_user_path %>
-        <%= link_to "your followers", followers_user_path(@user) %><br>
-        <%= link_to "your followings", followings_user_path(@user) %><br>
-      </h1>
-    </section>
-  </aside>
+  <div class="col-md-4">
+    <h1><%= gravatar_for @user %>
+    <%= @user.name %></h1><br>
+    email： <%= @user.email %><br>
+    年齢：　<%= @user.age %><br>
+    地域：　<%= @user.region %><br>
+    プロフィール<br>
+    <%= @user.profile %><br>
+    <%= link_to "プロフィールを編集する", edit_user_path %><br>
+    <%= link_to "your followers", followers_user_path(@user) %><br>
+    <%= link_to "your followings", followings_user_path(@user) %><br>
+  </div>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
@@ -25,3 +21,4 @@
     <% end %>
   </div>
 </div>
+
