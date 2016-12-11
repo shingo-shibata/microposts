@@ -1,6 +1,7 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create]
-
+  #mount_uploader :image, ImageUploader
+    
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
@@ -20,8 +21,26 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
   
+  def retweet
+    original_micropost = Micropost.find(params[:id])
+    if original_micropost
+      new_micropost = current_user.microposts.build(content: "#リツイート//" +original_micropost.content, 
+                                                   user_id: original_micropost.user_id)
+      if new_micropost.save
+        redirect_to user_path(current_user)
+        flash[:success] = "Retweet Successful"
+      else
+        redirect_to user_path(current_user), notice: new_micropost.errors.full_messages
+      end
+    else
+      redirect_back_or current_user
+      flash[:error] = "Retweet error!"
+    end
+  end
+  
   private
   def micropost_params
-    params.require(:micropost).permit(:content)
+    params.require(:micropost).permit(:content, :image, :image_cache, :remove_image)
   end
 end
+
